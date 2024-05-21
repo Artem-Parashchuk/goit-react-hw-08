@@ -1,0 +1,42 @@
+
+.form {
+  margin: 0 auto;
+  max-width: 300px;
+}
+.label {
+    position: relative;
+    display: block;
+    margin-bottom: 25px;
+    & span {
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+.field {
+  width: 100%;
+  font-size: 18px;
+  border: transparent;
+  background-color: rgba(128, 128, 128, .2);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.error {
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    color: red;
+    font-size: 14px;
+}
+.btn {
+    display: block;
+    margin: 0 auto;
+    font-size: 18px;
+    background-color: green;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    transition:  background-color .25s ease;
+    &:hover{
+        background-color: rgb(0, 102, 0);
+    }
+}

@@ -1,0 +1,31 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  max-width: 270px;
+  width: 100%;
+  padding: 20px 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.content {
+}
+.name {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+.phone {
+  display: flex;
+  gap: 5px;
+  font-size: 16px;
+}
+.btn {
+  padding: 10px;
+  background-color: red;
+  border-radius: 5px;
+  transition: background-color .25s ease;
+  &:hover {
+    background-color: rgb(204, 0, 0);
+  }
+}
