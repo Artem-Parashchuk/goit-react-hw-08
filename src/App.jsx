@@ -38,7 +38,10 @@ function App() {
             path="register"
             element={<Register />}
           />
-          <Route path="*" element={<NotFound />}/>
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
         </Route>
       </Routes>
     </>
