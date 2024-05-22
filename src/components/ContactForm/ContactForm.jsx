@@ -5,8 +5,8 @@ import * as Yup from "yup";
 import s from "./ContactForm.module.css";
 
 import { Loader } from "../Loader/Loader";
-import { addContactThunk } from "../../redux/contactsOps";
-import { selectIsLoading } from "../../redux/contactsSlice";
+import { addContactThunk } from "../../redux/contacts/operations";
+import { selectIsLoading } from "../../redux/contacts/slice";
 
 const ContactForm = () => {
   const dispatch = useDispatch();

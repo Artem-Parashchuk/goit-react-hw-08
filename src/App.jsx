@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout";
-import { Home } from "./pages/Home";
+import { Home } from "./pages/Home/Home";
 import { Phonebook } from "./pages/Phonebook";
 import { Login } from "./pages/Login";
 import Register from "./pages/Register";
@@ -12,7 +12,7 @@ import { PublicRoute } from "./routes/PublicRoute";
 import { refreshThunk } from "./redux/auth/operations";
 import { selectRefresh } from "./redux/auth/slice";
 import { Loader } from "./components/Loader/Loader";
-import { fetchContactsThunk } from "./redux/contactsOps";
+import { fetchContactsThunk } from "./redux/contacts/operations";
 
 function App() {
   const isRefresh = useSelector(selectRefresh)

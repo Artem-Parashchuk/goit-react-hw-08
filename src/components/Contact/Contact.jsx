@@ -3,7 +3,7 @@ import { MdPhone } from "react-icons/md";
 import { useDispatch } from "react-redux";
 
 import s from "./Contact.module.css";
-import { deleteContactThunk } from "../../redux/contactsOps";
+import { deleteContactThunk } from "../../redux/contacts/operations";
 
 const Contact = ({ name, id, number }) => {
   const dispatch = useDispatch();
