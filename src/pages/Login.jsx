@@ -20,8 +20,8 @@ export const Login = () => {
       <div className="hero">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold text-sky-800">Login now!</h1>
-            <p className="py-6 text-sky-800 text-sky-800">
+            <h1 className="text-5xl font-bold text-white">Login now!</h1>
+            <p className="py-6 text-sky-800 text-white">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
