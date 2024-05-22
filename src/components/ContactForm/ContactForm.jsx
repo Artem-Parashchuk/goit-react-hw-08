@@ -13,7 +13,7 @@ const ContactForm = () => {
   const isLoading = useSelector(selectIsLoading);
 
   const handleSubmit = (values, option) => {
-    dispatch(addContactThunk({ name: values.name, number: values.number }));
+    dispatch(addContactThunk(values));
     option.resetForm();
   };
 

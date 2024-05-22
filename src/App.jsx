@@ -1,6 +1,5 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchContactsThunk } from "./redux/contactsOps";
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout";
 import { Home } from "./pages/Home";
@@ -10,14 +9,20 @@ import Register from "./pages/Register";
 import NotFound from "./pages/NotFound/NotFound";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import { PublicRoute } from "./routes/PublicRoute";
+import { refreshThunk } from "./redux/auth/operations";
+import { selectRefresh } from "./redux/auth/slice";
+import { Loader } from "./components/Loader/Loader";
+import { fetchContactsThunk } from "./redux/contactsOps";
 
 function App() {
+  const isRefresh = useSelector(selectRefresh)
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchContactsThunk());
-  }, [dispatch]);
+    dispatch(refreshThunk())
+    dispatch(fetchContactsThunk())
+  }, [dispatch])
 
-  return (
+  return isRefresh ? <Loader/> : (
     <>
       <Routes>
         <Route

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { loginThunk, logoutThunk, registerThunk } from "./operations"
+import { loginThunk, logoutThunk, refreshThunk, registerThunk } from "./operations"
 
 const initialState = {
     user: {
@@ -9,7 +9,8 @@ const initialState = {
     token: null,
     isLoggedIn: false,
     error: false,
-    loading: false
+    loading: false,
+    isRefreshing: false
 }
 
 const slice = createSlice({
@@ -18,7 +19,8 @@ const slice = createSlice({
     selectors: {
         selectUserName: state => state.user.name,
         selectUserToken: state => state.token,
-        selectUserLoading: state => state.isLoggedIn
+        selectUserLoading: state => state.isLoggedIn,
+        selectRefresh: state => state.isRefreshing
     },
     extraReducers: builder => {
         builder
@@ -35,8 +37,19 @@ const slice = createSlice({
         .addCase(logoutThunk.fulfilled, () => {
             return initialState
         })
+        .addCase(refreshThunk.fulfilled, (state, action) => {
+            state.user = action.payload
+            state.isLoggedIn = true
+            state.isRefreshing = false
+        })
+        .addCase(refreshThunk.pending, state => {
+            state.isRefreshing = true
+        })
+        .addCase(refreshThunk.rejected, state => {
+            state.isRefreshing = false
+        })
     }
 })
 
 export const authReducer = slice.reducer
-export const {selectUserName, selectUserToken, selectUserLoading} = slice.selectors
+export const {selectUserName, selectUserToken, selectUserLoading, selectRefresh} = slice.selectors

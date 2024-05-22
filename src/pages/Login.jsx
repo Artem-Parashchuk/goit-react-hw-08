@@ -13,7 +13,6 @@ export const Login = () => {
 
   const handleSubmit = (values) => {
     dispatch(loginThunk(values))
-    console.log(values);
   };
 
   return (

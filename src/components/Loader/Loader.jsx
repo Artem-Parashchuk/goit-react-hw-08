@@ -4,8 +4,8 @@ export const Loader = () => {
   return (
     <div className={s.loader}>
       <FallingLines
-        color="#4fa94d"
-        width="50"
+        color="#06069b"
+        width="100"
         visible={true}
         ariaLabel="falling-circles-loading"
       />

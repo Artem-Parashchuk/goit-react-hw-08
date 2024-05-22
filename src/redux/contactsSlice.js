@@ -1,6 +1,8 @@
 import { createSlice, createSelector, isAnyOf } from "@reduxjs/toolkit";
 import { addContactThunk, deleteContactThunk, fetchContactsThunk } from "./contactsOps";
 import { selectNameFilter } from "./filtersSlice";
+import { logoutThunk } from "./auth/operations";
+import toast from "react-hot-toast";
 
 const initialState = {
     items: [],
@@ -18,13 +20,20 @@ const contactsSlice = createSlice({
                 state.items = payload;
                 state.loading = false;
             })
+            .addCase(logoutThunk.fulfilled, () => {
+                return initialState
+            })
             .addCase(deleteContactThunk.fulfilled, (state, { payload }) => {
                 state.items = state.items.filter(item => item.id !== payload);
                 state.loading = false;
+                console.log(state.items)
+                toast.error(`контакт успішно видалено`)
+
             })
             .addCase(addContactThunk.fulfilled, (state, { payload }) => {
                 state.items.push(payload);
                 state.loading = false;
+                toast.success(`${payload.name} успішно додано`)
             })
             .addMatcher(
                 isAnyOf(
