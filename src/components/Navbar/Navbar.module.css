@@ -1,5 +1,17 @@
 .nav {
     display: flex;
+    align-items: center;
     gap: 20px;
     font-size: 18px;
+}
+.btn_logout {
+    border: 1px solid;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: rgb(30, 30, 139);
+    transition: background-color .25s ease;
+    &:hover,
+    &:focus {
+        background-color: rgb(23, 23, 108);
+    }
 }
