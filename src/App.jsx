@@ -8,6 +8,8 @@ import { Phonebook } from "./pages/Phonebook";
 import { Login } from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound/NotFound";
+import { PrivateRoute } from "./routes/PrivateRoute";
+import { PublicRoute } from "./routes/PublicRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,7 +22,11 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Layout />}
+          element={
+            <PrivateRoute>
+              <Layout />
+            </PrivateRoute>
+          }
         >
           <Route
             index
@@ -30,19 +36,27 @@ function App() {
             path="phonebook"
             element={<Phonebook />}
           />
-          <Route
-            path="login"
-            element={<Login />}
-          />
-          <Route
-            path="register"
-            element={<Register />}
-          />
         </Route>
-          <Route
-            path="*"
-            element={<NotFound />}
-          />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
       </Routes>
     </>
   );
