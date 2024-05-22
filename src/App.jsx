@@ -7,7 +7,7 @@ import { Home } from "./pages/Home";
 import { Phonebook } from "./pages/Phonebook";
 import { Login } from "./pages/Login";
 import Register from "./pages/Register";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,11 +38,11 @@ function App() {
             path="register"
             element={<Register />}
           />
+        </Route>
           <Route
             path="*"
             element={<NotFound />}
           />
-        </Route>
       </Routes>
     </>
   );

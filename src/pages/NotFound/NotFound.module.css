@@ -1,0 +1,13 @@
+.not_found {
+    height: 100vh;
+    background-color: teal;
+    background-image: url('../../assets/404_page.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.link {
+    font-size: 28px;
+    font-weight: 600;
+    text-decoration: underline;
+}
