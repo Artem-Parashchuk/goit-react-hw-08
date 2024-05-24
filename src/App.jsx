@@ -12,17 +12,17 @@ import { PublicRoute } from "./routes/PublicRoute";
 import { refreshThunk } from "./redux/auth/operations";
 import { selectRefresh } from "./redux/auth/slice";
 import { Loader } from "./components/Loader/Loader";
-import { fetchContactsThunk } from "./redux/contacts/operations";
 
 function App() {
-  const isRefresh = useSelector(selectRefresh)
+  const isRefresh = useSelector(selectRefresh);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(refreshThunk())
-    dispatch(fetchContactsThunk())
-  }, [dispatch])
+    dispatch(refreshThunk());
+  }, [dispatch]);
 
-  return isRefresh ? <Loader/> : (
+  return isRefresh ? (
+    <Loader />
+  ) : (
     <>
       <Routes>
         <Route
@@ -38,7 +38,7 @@ function App() {
             element={<Home />}
           />
           <Route
-            path="phonebook"
+            path="contacts"
             element={<Phonebook />}
           />
         </Route>

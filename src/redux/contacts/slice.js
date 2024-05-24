@@ -26,7 +26,6 @@ const contactsSlice = createSlice({
             .addCase(deleteContactThunk.fulfilled, (state, { payload }) => {
                 state.items = state.items.filter(item => item.id !== payload);
                 state.loading = false;
-                console.log(state.items)
                 toast.error(`контакт успішно видалено`)
 
             })
