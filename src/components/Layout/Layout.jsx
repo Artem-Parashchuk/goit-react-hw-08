@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Navbar } from "../Navbar/Navbar";
+import { Navigation } from "../Navigation/Navigation";
 import s from "./Layout.module.css";
 import { useSelector } from "react-redux";
 import { selectUserName } from "../../redux/auth/slice";
@@ -13,7 +13,7 @@ export const Layout = () => {
         {
           userName && <p className={s.text}>Welcome, {userName}</p>
         }
-        <Navbar />
+        <Navigation />
       </header>
       <main>
         <div className={s.content}>

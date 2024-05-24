@@ -13,7 +13,7 @@ import { refreshThunk } from "./redux/auth/operations";
 import { selectRefresh } from "./redux/auth/slice";
 import { Loader } from "./components/Loader/Loader";
 
-function App() {
+function AppBar() {
   const isRefresh = useSelector(selectRefresh);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -67,4 +67,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppBar;
